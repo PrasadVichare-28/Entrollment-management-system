@@ -4,20 +4,62 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.trainingapp.controller.LoginController"
             styleClass="root-bg"
             stylesheets="@style.css">
 
-    <StackPane AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
-        <VBox spacing="16" alignment="CENTER" maxWidth="360" styleClass="card">
-            <Label text="Training Enrollment" styleClass="title"/>
-            <TextField fx:id="usernameField" promptText="Username" maxWidth="280"/>
-            <PasswordField fx:id="passwordField" promptText="Password" maxWidth="280"/>
-            <Button text="Sign In" onAction="#handleLogin" styleClass="primary-btn" maxWidth="280"/>
-            <Label fx:id="message" styleClass="warn"/>
-            <Label text="Demo users: admin/admin123, instructor/teach123, student/stud123" styleClass="hint" wrapText="true" maxWidth="320"/>
-        </VBox>
-    </StackPane>
-</AnchorPane>
+    <!-- Top: Large app title, centered and out of the way -->
+    <top>
+        <HBox alignment="CENTER">
+            <children>
+                <Label text="Training Enrollment Manager" styleClass="app-title"/>
+            </children>
+            <padding>
+                <Insets top="28" right="24" bottom="10" left="24"/>
+            </padding>
+        </HBox>
+    </top>
+
+    <!-- Center: Card perfectly centered in the available space -->
+    <center>
+        <StackPane>
+            <children>
+                <VBox spacing="16" alignment="CENTER" maxWidth="420" styleClass="login-card">
+                    <children>
+                        <Label text="Sign in" styleClass="login-heading"/>
+
+                        <TextField fx:id="usernameField" promptText="Username" maxWidth="320"/>
+                        <PasswordField fx:id="passwordField" promptText="Password" maxWidth="320"/>
+
+                        <Button text="Sign In" onAction="#handleLogin" styleClass="primary-btn" maxWidth="320"/>
+
+                        <Label fx:id="message" styleClass="warn"/>
+
+                        <Label text="Demo users: admin/admin123, instructor/teach123, student/stud123"
+                               styleClass="hint" wrapText="true" maxWidth="360"/>
+                    </children>
+                    <padding>
+                        <Insets top="28" right="28" bottom="28" left="28"/>
+                    </padding>
+                </VBox>
+            </children>
+            <padding>
+                <Insets top="20" right="24" bottom="20" left="24"/>
+            </padding>
+        </StackPane>
+    </center>
+
+    <!-- Bottom: subtle footer -->
+    <bottom>
+        <HBox alignment="CENTER">
+            <children>
+                <Label text="© 2025 • Training Enrollment Manager" styleClass="login-footer"/>
+            </children>
+            <padding>
+                <Insets top="10" right="16" bottom="16" left="16"/>
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>
