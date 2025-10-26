@@ -121,3 +121,87 @@
     -fx-padding: 18;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.2, 0, 4);
 }
+
+/* ===== Login page polish ===== */
+.app-title {
+    -fx-font-size: 42px;
+    -fx-font-weight: 900;
+    -fx-text-fill: rgba(255,255,255,0.95);
+    -fx-font-family: "Inter","Segoe UI",system-ui,sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0.35, 0, 4);
+    -fx-padding: 24 12 8 12;
+}
+
+.login-card {
+    /* Base from .card but a touch more “glass” */
+    -fx-background-color: rgba(255,255,255,0.92);
+    -fx-background-radius: 20;
+    -fx-padding: 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 22, 0.35, 0, 8);
+    -fx-border-color: rgba(255,255,255,0.45);
+    -fx-border-radius: 20;
+}
+
+.login-heading {
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1E3C72;
+    -fx-padding: 0 0 6 0;
+}
+
+.login-footer {
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-font-size: 12px;
+}
+
+/* Nicer focus state for inputs on login */
+.text-field, .password-field {
+    -fx-background-radius: 10;
+    -fx-padding: 10 12;
+}
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #667EEA;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.35), 10, 0.4, 0, 0);
+}
+
+/* ===== Login page polish (improved composition) ===== */
+.app-title {
+    -fx-font-size: 34px;            /* a bit smaller so it doesn't collide */
+    -fx-font-weight: 900;
+    -fx-text-fill: rgba(255,255,255,0.96);
+    -fx-font-family: "Inter","Segoe UI",system-ui,sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 16, 0.35, 0, 3);
+    -fx-letter-spacing: 0.3px;
+}
+
+.login-card {
+    /* keep your “glass” feel but with better proportions */
+    -fx-background-color: rgba(255,255,255,0.94);
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 22, 0.32, 0, 8);
+    -fx-border-color: rgba(255,255,255,0.45);
+    -fx-border-radius: 20;
+}
+
+.login-heading {
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1E3C72;
+    -fx-padding: 0 0 4 0;
+}
+
+.login-footer {
+    -fx-text-fill: rgba(255,255,255,0.82);
+    -fx-font-size: 12px;
+}
+
+/* Inputs feel nicer with consistent height */
+.text-field, .password-field {
+    -fx-background-radius: 10;
+    -fx-padding: 10 12;
+}
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #667EEA;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.35), 10, 0.4, 0, 0);
+}
+
