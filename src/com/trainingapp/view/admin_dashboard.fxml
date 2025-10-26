@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.trainingapp.controller.AdminDashboardController"
+            styleClass="root-bg"
+            stylesheets="@style.css">
+
+
+
+    <top>
+        <ToolBar styleClass="toolbar">
+            <Label text="Admin Dashboard" styleClass="toolbar-title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="ghost-btn"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.55">
+            <!-- Left: Courses -->
+            <VBox spacing="8" styleClass="panel">
+                <padding>
+                    <Insets top="12" right="12" bottom="12" left="12"/>
+                </padding>
+
+                <Label text="Courses" styleClass="section-title"/>
+                <TableView fx:id="tblCourses" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="colCid" text="ID" prefWidth="80"/>
+                        <TableColumn fx:id="colTitle" text="Title" prefWidth="160"/>
+                        <TableColumn fx:id="colInstr" text="Instructor" prefWidth="140"/>
+                        <TableColumn fx:id="colDate" text="Date/Time" prefWidth="140"/>
+                        <TableColumn fx:id="colLoc" text="Location" prefWidth="100"/>
+                        <TableColumn fx:id="colCap" text="Cap" prefWidth="60"/>
+                        <TableColumn fx:id="colEnrolled" text="Enrolled" prefWidth="80"/>
+                    </columns>
+                </TableView>
+
+                <GridPane hgap="8" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="16"/>
+                        <ColumnConstraints percentWidth="34"/>
+                        <ColumnConstraints percentWidth="16"/>
+                        <ColumnConstraints percentWidth="34"/>
+                    </columnConstraints>
+
+                    <Label text="ID"/>
+                    <TextField fx:id="txtId" GridPane.columnIndex="1"/>
+
+                    <Label text="Title" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtTitle" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Instructor" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtInstr" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Date/Time" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtDate" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="YYYY-MM-DD hh:mm AM/PM"/>
+
+                    <Label text="Location" GridPane.columnIndex="2"/>
+                    <TextField fx:id="txtLoc" GridPane.columnIndex="3"/>
+
+                    <Label text="Capacity" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                    <TextField fx:id="txtCap" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                </GridPane>
+
+                <HBox spacing="8">
+                    <Button text="Add Course" onAction="#handleAddCourse" styleClass="primary-btn"/>
+                    <Button text="Add Participant" onAction="#handleAddParticipant"/>
+                </HBox>
+            </VBox>
+
+            <!-- Right: Enrollments -->
+            <VBox spacing="8" styleClass="panel">
+                <padding>
+                    <Insets top="12" right="12" bottom="12" left="12"/>
+                </padding>
+
+                <Label text="Enrollments (selected course)" styleClass="section-title"/>
+                <TableView fx:id="tblEnrollments" prefHeight="420">
+                    <columns>
+                        <TableColumn fx:id="colPid" text="PID" prefWidth="80"/>
+                        <TableColumn fx:id="colPname" text="Name" prefWidth="160"/>
+                        <TableColumn fx:id="colDept" text="Dept" prefWidth="120"/>
+                        <TableColumn fx:id="colEmail" text="Email" prefWidth="180"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets top="8" right="0" bottom="0" left="0"/>
+                    </padding>
+
+                    <Label text="Participant"/>
+                    <ComboBox fx:id="cmbParticipant" prefWidth="220"/>
+                    <Button text="Enroll" onAction="#handleEnroll" styleClass="primary-btn"/>
+                    <Label text="Status"/>
+                    <ComboBox fx:id="cmbStatus" prefWidth="160"/>
+                    <Button text="Update" onAction="#handleUpdateStatus"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

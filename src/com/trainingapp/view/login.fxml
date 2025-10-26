@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.trainingapp.controller.LoginController"
+            styleClass="root-bg"
+            stylesheets="@style.css">
+
+    <StackPane AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        <VBox spacing="16" alignment="CENTER" maxWidth="360" styleClass="card">
+            <Label text="Training Enrollment" styleClass="title"/>
+            <TextField fx:id="usernameField" promptText="Username" maxWidth="280"/>
+            <PasswordField fx:id="passwordField" promptText="Password" maxWidth="280"/>
+            <Button text="Sign In" onAction="#handleLogin" styleClass="primary-btn" maxWidth="280"/>
+            <Label fx:id="message" styleClass="warn"/>
+            <Label text="Demo users: admin/admin123, instructor/teach123, student/stud123" styleClass="hint" wrapText="true" maxWidth="320"/>
+        </VBox>
+    </StackPane>
+</AnchorPane>

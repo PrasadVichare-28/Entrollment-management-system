@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.trainingapp.controller.StudentDashboardController"
+            styleClass="root-bg"
+            stylesheets="@style.css">
+
+    <top>
+        <ToolBar styleClass="toolbar">
+            <Label text="Student Dashboard" styleClass="toolbar-title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="ghost-btn"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <VBox spacing="12" styleClass="panel">
+            <padding>
+                <Insets top="16" right="16" bottom="16" left="16"/>
+            </padding>
+
+            <Label fx:id="lblUser" styleClass="section-title"/>
+            <TableView fx:id="tblMyEnrollments" prefHeight="520">
+                <columns>
+                    <TableColumn fx:id="colCourse" text="Course ID" prefWidth="120"/>
+                    <TableColumn fx:id="colTitle" text="Title" prefWidth="220"/>
+                    <TableColumn fx:id="colDate" text="Date/Time" prefWidth="160"/>
+                    <TableColumn fx:id="colLocation" text="Location" prefWidth="140"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,123 @@
+/* =================== Base Theme =================== */
+.root-bg {
+    -fx-background-color: linear-gradient(to bottom right, #1E3C72, #2A5298);
+    -fx-font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    -fx-text-fill: #222;
+}
+
+/* =================== Toolbar =================== */
+.toolbar {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-padding: 10 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.3, 0, 3);
+    -fx-background-radius: 10;
+}
+.toolbar-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.ghost-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: rgba(255,255,255,0.4);
+    -fx-border-radius: 8;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+.ghost-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.15);
+}
+
+/* =================== Panels =================== */
+.panel {
+    -fx-background-color: rgba(255,255,255,0.7);
+    -fx-background-radius: 18;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.25, 0, 4);
+}
+.section-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E3C72;
+    -fx-underline: true;
+}
+
+/* =================== Buttons =================== */
+.primary-btn {
+    -fx-background-color: linear-gradient(to right, #667EEA, #764BA2);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 10;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.5), 10, 0.3, 0, 2);
+    -fx-transition: all 0.3s ease-in-out;
+}
+.primary-btn:hover {
+    -fx-background-color: linear-gradient(to right, #5A67D8, #6B46C1);
+    -fx-translate-y: -1;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.7), 14, 0.4, 0, 3);
+}
+
+/* =================== TableView =================== */
+.table-view {
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.5);
+    -fx-border-radius: 12;
+    -fx-background-color: rgba(255,255,255,0.6);
+}
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #E8ECF7, #D9E2F0);
+    -fx-background-radius: 12 12 0 0;
+}
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(0,0,0,0.05) transparent;
+}
+.table-view .table-row-cell:odd {
+    -fx-background-color: rgba(255,255,255,0.5);
+}
+.table-view .table-row-cell:selected {
+    -fx-background-color: rgba(102,126,234,0.3);
+    -fx-text-fill: #1E1E1E;
+}
+
+/* =================== Inputs =================== */
+.text-field, .combo-box {
+    -fx-background-radius: 8;
+    -fx-background-color: rgba(255,255,255,0.8);
+    -fx-border-radius: 8;
+    -fx-border-color: #B5C2E0;
+    -fx-padding: 6 10;
+}
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #667EEA;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.3), 8, 0.4, 0, 0);
+}
+
+/* =================== SplitPane Divider =================== */
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-padding: 0 1;
+}
+
+/* =================== ScrollBars =================== */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+    -fx-background-color: rgba(150,160,200,0.6);
+    -fx-background-radius: 6;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(150,160,200,0.9);
+}
+
+/* =================== Cards (Optional future use) =================== */
+.card {
+    -fx-background-color: rgba(255,255,255,0.8);
+    -fx-background-radius: 16;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.2, 0, 4);
+}
