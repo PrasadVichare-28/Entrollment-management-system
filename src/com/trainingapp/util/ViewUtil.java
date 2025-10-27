@@ -10,8 +10,7 @@ public class ViewUtil {
         try {
             FXMLLoader loader = new FXMLLoader(ViewUtil.class.getResource(fxmlPath));
             Parent root = loader.load();
-            Scene scene = new Scene(root, width, height);
-            return scene;
+            return new Scene(root, width, height);
         } catch (IOException e) {
             e.printStackTrace();
             return null;

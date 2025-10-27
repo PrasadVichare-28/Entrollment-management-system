@@ -18,7 +18,7 @@ public class Main extends Application {
         stage.setMaximized(true);
 
         // If you prefer true fullscreen without window chrome, use this instead:
-        // stage.setFullScreen(true);
+        //stage.setFullScreen(true);
 
         // Allow resizing so it looks good on all screens
         stage.setResizable(true);

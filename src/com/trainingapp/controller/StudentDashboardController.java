@@ -34,7 +34,8 @@ public class StudentDashboardController {
 
     private void refresh() {
         User u = Session.getCurrentUser();
-        String pid = u.getParticipantId();  // linked in AuthService
+        // Use participantId from User (linked in AuthService)
+        String pid = u.getParticipantId();  
         if (pid == null) {
             tblMyEnrollments.setItems(FXCollections.emptyObservableList());
             return;
