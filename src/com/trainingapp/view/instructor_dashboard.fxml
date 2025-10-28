@@ -10,6 +10,7 @@
             styleClass="root-bg"
             stylesheets="@style.css">
 
+    <!-- ====== TOP TOOLBAR ====== -->
     <top>
         <ToolBar styleClass="toolbar">
             <Label text="Instructor Dashboard" styleClass="toolbar-title"/>
@@ -18,37 +19,40 @@
         </ToolBar>
     </top>
 
+    <!-- ====== MAIN CONTENT ====== -->
     <center>
-        <SplitPane dividerPositions="0.55">
+        <SplitPane dividerPositions="0.55" prefWidth="Infinity" prefHeight="Infinity">
 
-            <!-- Left: Courses -->
-            <VBox spacing="8" styleClass="panel">
+            <!-- LEFT: Courses Panel -->
+            <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets top="12" right="12" bottom="12" left="12"/>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
                 </padding>
 
-                <Label text="Courses" styleClass="section-title"/>
-                <TableView fx:id="tblCourses">
+                <Label text="Courses You Teach" styleClass="section-title"/>
+
+                <TableView fx:id="tblCourses" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colCid" text="ID" prefWidth="80"/>
-                        <TableColumn fx:id="colTitle" text="Title" prefWidth="160"/>
+                        <TableColumn fx:id="colCid" text="Course ID" prefWidth="100"/>
+                        <TableColumn fx:id="colTitle" text="Title" prefWidth="200"/>
                         <TableColumn fx:id="colInstr" text="Instructor" prefWidth="140"/>
-                        <TableColumn fx:id="colDate" text="Date/Time" prefWidth="140"/>
-                        <TableColumn fx:id="colLoc" text="Location" prefWidth="100"/>
-                        <TableColumn fx:id="colCap" text="Cap" prefWidth="60"/>
-                        <TableColumn fx:id="colEnrolled" text="Enrolled" prefWidth="80"/>
+                        <TableColumn fx:id="colDate" text="Date/Time" prefWidth="160"/>
+                        <TableColumn fx:id="colLoc" text="Location" prefWidth="120"/>
+                        <TableColumn fx:id="colCap" text="Cap" prefWidth="80"/>
+                        <TableColumn fx:id="colEnrolled" text="Enrolled" prefWidth="100"/>
                     </columns>
                 </TableView>
             </VBox>
 
-            <!-- Right: Enrollments -->
-            <VBox spacing="8" styleClass="panel">
+            <!-- RIGHT: Enrollments Panel -->
+            <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets top="12" right="12" bottom="12" left="12"/>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
                 </padding>
 
-                <Label text="Enrollments (selected course)" styleClass="section-title"/>
-                <TableView fx:id="tblEnrollments">
+                <Label text="Enrollments in Selected Course" styleClass="section-title"/>
+
+                <TableView fx:id="tblEnrollments" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colPid" text="PID" prefWidth="80"/>
                         <TableColumn fx:id="colPname" text="Name" prefWidth="160"/>
@@ -58,16 +62,20 @@
                     </columns>
                 </TableView>
 
-                <HBox spacing="8" alignment="CENTER_LEFT">
+                <!-- Bottom Controls (Added) -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
                     <padding>
                         <Insets top="8" right="0" bottom="0" left="0"/>
                     </padding>
 
                     <Label text="Participant"/>
                     <ComboBox fx:id="cmbParticipant" prefWidth="220"/>
+
                     <Button text="Enroll" onAction="#handleEnroll" styleClass="primary-btn"/>
+
                     <Label text="Status"/>
                     <ComboBox fx:id="cmbStatus" prefWidth="160"/>
+
                     <Button text="Update" onAction="#handleUpdateStatus"/>
                 </HBox>
             </VBox>

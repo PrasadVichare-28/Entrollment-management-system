@@ -1,71 +1,84 @@
-/* =================== Base Theme =================== */
+/* ============================================================
+   BASE THEME
+   ============================================================ */
 .root-bg {
     -fx-background-color: linear-gradient(to bottom right, #1E3C72, #2A5298);
-    -fx-font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    -fx-font-family: "Segoe UI", "Inter", system-ui, sans-serif;
     -fx-text-fill: #222;
 }
 
-/* =================== Toolbar =================== */
+/* Adaptive text scaling */
+.root {
+    -fx-font-size: 1em;
+}
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
 .toolbar {
     -fx-background-color: rgba(255,255,255,0.1);
-    -fx-padding: 10 16;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.3, 0, 3);
+    -fx-padding: 10 18;
     -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.4, 0, 3);
 }
 .toolbar-title {
-    -fx-text-fill: #FFFFFF;
-    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
     -fx-font-weight: bold;
 }
 .ghost-btn {
     -fx-background-color: transparent;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: white;
     -fx-border-color: rgba(255,255,255,0.4);
     -fx-border-radius: 8;
     -fx-padding: 6 14;
     -fx-cursor: hand;
 }
 .ghost-btn:hover {
-    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-background-color: rgba(255,255,255,0.2);
 }
 
-/* =================== Panels =================== */
+/* ============================================================
+   PANELS (Glass Effect)
+   ============================================================ */
 .panel {
-    -fx-background-color: rgba(255,255,255,0.7);
+    -fx-background-color: rgba(255,255,255,0.75);
     -fx-background-radius: 18;
     -fx-padding: 16;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.25, 0, 4);
 }
 .section-title {
-    -fx-font-size: 17px;
+    -fx-font-size: 1.1em;
     -fx-font-weight: bold;
     -fx-text-fill: #1E3C72;
     -fx-underline: true;
 }
 
-/* =================== Buttons =================== */
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .primary-btn {
     -fx-background-color: linear-gradient(to right, #667EEA, #764BA2);
     -fx-text-fill: white;
     -fx-font-weight: 600;
     -fx-background-radius: 10;
-    -fx-padding: 8 16;
+    -fx-padding: 8 18;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.5), 10, 0.3, 0, 2);
-    -fx-transition: all 0.3s ease-in-out;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.5), 8, 0.4, 0, 2);
 }
 .primary-btn:hover {
     -fx-background-color: linear-gradient(to right, #5A67D8, #6B46C1);
-    -fx-translate-y: -1;
-    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.7), 14, 0.4, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.7), 12, 0.4, 0, 3);
 }
 
-/* =================== TableView =================== */
+/* ============================================================
+   TABLES
+   ============================================================ */
 .table-view {
     -fx-background-radius: 12;
     -fx-border-color: rgba(255,255,255,0.5);
     -fx-border-radius: 12;
-    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-background-color: rgba(255,255,255,0.65);
 }
 .table-view .column-header-background {
     -fx-background-color: linear-gradient(to bottom, #E8ECF7, #D9E2F0);
@@ -76,33 +89,40 @@
     -fx-border-color: transparent transparent rgba(0,0,0,0.05) transparent;
 }
 .table-view .table-row-cell:odd {
-    -fx-background-color: rgba(255,255,255,0.5);
+    -fx-background-color: rgba(255,255,255,0.6);
 }
 .table-view .table-row-cell:selected {
     -fx-background-color: rgba(102,126,234,0.3);
     -fx-text-fill: #1E1E1E;
 }
 
-/* =================== Inputs =================== */
-.text-field, .combo-box {
-    -fx-background-radius: 8;
-    -fx-background-color: rgba(255,255,255,0.8);
-    -fx-border-radius: 8;
+/* ============================================================
+   INPUTS
+   ============================================================ */
+.text-field, .combo-box, .password-field {
+    -fx-background-radius: 10;
+    -fx-background-color: rgba(255,255,255,0.9);
+    -fx-border-radius: 10;
     -fx-border-color: #B5C2E0;
-    -fx-padding: 6 10;
+    -fx-padding: 8 12;
+    -fx-font-size: 0.95em;
 }
-.text-field:focused, .combo-box:focused {
+.text-field:focused, .combo-box:focused, .password-field:focused {
     -fx-border-color: #667EEA;
-    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.3), 8, 0.4, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.4), 8, 0.5, 0, 0);
 }
 
-/* =================== SplitPane Divider =================== */
+/* ============================================================
+   SPLITPANE DIVIDER
+   ============================================================ */
 .split-pane:horizontal > .split-pane-divider {
     -fx-background-color: rgba(255,255,255,0.3);
     -fx-padding: 0 1;
 }
 
-/* =================== ScrollBars =================== */
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
 .scroll-bar:horizontal, .scroll-bar:vertical {
     -fx-background-color: transparent;
 }
@@ -114,94 +134,57 @@
     -fx-background-color: rgba(150,160,200,0.9);
 }
 
-/* =================== Cards (Optional future use) =================== */
+/* ============================================================
+   CARDS (Reusable)
+   ============================================================ */
 .card {
-    -fx-background-color: rgba(255,255,255,0.8);
+    -fx-background-color: rgba(255,255,255,0.9);
     -fx-background-radius: 16;
     -fx-padding: 18;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.2, 0, 4);
 }
 
-/* ===== Login page polish ===== */
+/* ============================================================
+   LOGIN PAGE POLISH
+   ============================================================ */
 .app-title {
-    -fx-font-size: 42px;
+    -fx-font-size: 2.6em;
     -fx-font-weight: 900;
-    -fx-text-fill: rgba(255,255,255,0.95);
-    -fx-font-family: "Inter","Segoe UI",system-ui,sans-serif;
+    -fx-text-fill: rgba(255,255,255,0.96);
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0.35, 0, 4);
-    -fx-padding: 24 12 8 12;
+    -fx-text-alignment: center;
 }
-
 .login-card {
-    /* Base from .card but a touch more “glass” */
     -fx-background-color: rgba(255,255,255,0.92);
     -fx-background-radius: 20;
-    -fx-padding: 26;
+    -fx-padding: 30;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 22, 0.35, 0, 8);
     -fx-border-color: rgba(255,255,255,0.45);
     -fx-border-radius: 20;
 }
-
 .login-heading {
-    -fx-font-size: 22px;
+    -fx-font-size: 1.4em;
     -fx-font-weight: 800;
     -fx-text-fill: #1E3C72;
-    -fx-padding: 0 0 6 0;
 }
-
 .login-footer {
     -fx-text-fill: rgba(255,255,255,0.85);
-    -fx-font-size: 12px;
+    -fx-font-size: 0.8em;
+}
+.warn {
+    -fx-text-fill: #C62828;
+    -fx-font-size: 0.9em;
+    -fx-font-weight: 600;
+}
+.hint {
+    -fx-text-fill: #666;
+    -fx-font-size: 0.8em;
 }
 
-/* Nicer focus state for inputs on login */
-.text-field, .password-field {
-    -fx-background-radius: 10;
-    -fx-padding: 10 12;
+/* ============================================================
+   OPTIONAL CLEANUP (Better focus look)
+   ============================================================ */
+* {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
-.text-field:focused, .password-field:focused {
-    -fx-border-color: #667EEA;
-    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.35), 10, 0.4, 0, 0);
-}
-
-/* ===== Login page polish (improved composition) ===== */
-.app-title {
-    -fx-font-size: 34px;            /* a bit smaller so it doesn't collide */
-    -fx-font-weight: 900;
-    -fx-text-fill: rgba(255,255,255,0.96);
-    -fx-font-family: "Inter","Segoe UI",system-ui,sans-serif;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 16, 0.35, 0, 3);
-    -fx-letter-spacing: 0.3px;
-}
-
-.login-card {
-    /* keep your “glass” feel but with better proportions */
-    -fx-background-color: rgba(255,255,255,0.94);
-    -fx-background-radius: 20;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 22, 0.32, 0, 8);
-    -fx-border-color: rgba(255,255,255,0.45);
-    -fx-border-radius: 20;
-}
-
-.login-heading {
-    -fx-font-size: 22px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #1E3C72;
-    -fx-padding: 0 0 4 0;
-}
-
-.login-footer {
-    -fx-text-fill: rgba(255,255,255,0.82);
-    -fx-font-size: 12px;
-}
-
-/* Inputs feel nicer with consistent height */
-.text-field, .password-field {
-    -fx-background-radius: 10;
-    -fx-padding: 10 12;
-}
-.text-field:focused, .password-field:focused {
-    -fx-border-color: #667EEA;
-    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.35), 10, 0.4, 0, 0);
-}
-

@@ -10,6 +10,7 @@
             styleClass="root-bg"
             stylesheets="@style.css">
 
+    <!-- ====== TOP TOOLBAR ====== -->
     <top>
         <ToolBar styleClass="toolbar">
             <Label text="Student Dashboard" styleClass="toolbar-title"/>
@@ -18,22 +19,55 @@
         </ToolBar>
     </top>
 
+    <!-- ====== MAIN CONTENT ====== -->
     <center>
-        <VBox spacing="12" styleClass="panel">
-            <padding>
-                <Insets top="16" right="16" bottom="16" left="16"/>
-            </padding>
+        <SplitPane dividerPositions="0.55" prefWidth="Infinity" prefHeight="Infinity">
 
-            <Label fx:id="lblUser" styleClass="section-title"/>
-            <TableView fx:id="tblMyEnrollments" prefHeight="520">
-                <columns>
-                    <TableColumn fx:id="colCourse" text="Course ID" prefWidth="120"/>
-                    <TableColumn fx:id="colTitle" text="Title" prefWidth="220"/>
-                    <TableColumn fx:id="colDate" text="Date/Time" prefWidth="160"/>
-                    <TableColumn fx:id="colLocation" text="Location" prefWidth="140"/>
-                    <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
-                </columns>
-            </TableView>
-        </VBox>
+            <!-- LEFT PANEL: Available Courses -->
+            <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="Available Courses" styleClass="section-title"/>
+
+                <TableView fx:id="tblCourses" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colCid" text="Course ID" prefWidth="100"/>
+                        <TableColumn fx:id="colTitle" text="Title" prefWidth="200"/>
+                        <TableColumn fx:id="colInstr" text="Instructor" prefWidth="150"/>
+                        <TableColumn fx:id="colDate" text="Date/Time" prefWidth="160"/>
+                        <TableColumn fx:id="colLoc" text="Location" prefWidth="120"/>
+                        <TableColumn fx:id="colCap" text="Cap" prefWidth="80"/>
+                        <TableColumn fx:id="colEnrolled" text="Enrolled" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Enroll in Selected Course" onAction="#handleEnroll" styleClass="primary-btn"/>
+                    <Button text="Refresh" onAction="#initialize" styleClass="ghost-btn"/>
+                </HBox>
+            </VBox>
+
+            <!-- RIGHT PANEL: Your Enrollments -->
+            <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label fx:id="lblUser" text="Welcome, Student" styleClass="section-title"/>
+
+                <TableView fx:id="tblMyEnrollments" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colCourse" text="Course ID" prefWidth="100"/>
+                        <TableColumn fx:id="colTitle2" text="Title" prefWidth="200"/>
+                        <TableColumn fx:id="colDate2" text="Date/Time" prefWidth="160"/>
+                        <TableColumn fx:id="colLocation" text="Location" prefWidth="120"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </SplitPane>
     </center>
 </BorderPane>
