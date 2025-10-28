@@ -10,8 +10,7 @@
             styleClass="root-bg"
             stylesheets="@style.css">
 
-
-
+    <!-- ====== TOP TOOLBAR ====== -->
     <top>
         <ToolBar styleClass="toolbar">
             <Label text="Admin Dashboard" styleClass="toolbar-title"/>
@@ -20,16 +19,19 @@
         </ToolBar>
     </top>
 
+    <!-- ====== MAIN CONTENT ====== -->
     <center>
-        <SplitPane dividerPositions="0.55">
-            <!-- Left: Courses -->
-            <VBox spacing="8" styleClass="panel">
+        <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+
+            <!-- ====== LEFT PANE (Courses) ====== -->
+            <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
                 <padding>
-                    <Insets top="12" right="12" bottom="12" left="12"/>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
                 </padding>
 
                 <Label text="Courses" styleClass="section-title"/>
-                <TableView fx:id="tblCourses" prefHeight="400">
+
+                <TableView fx:id="tblCourses" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colCid" text="ID" prefWidth="80"/>
                         <TableColumn fx:id="colTitle" text="Title" prefWidth="160"/>
@@ -41,7 +43,7 @@
                     </columns>
                 </TableView>
 
-                <GridPane hgap="8" vgap="8">
+                <GridPane hgap="10" vgap="10">
                     <columnConstraints>
                         <ColumnConstraints percentWidth="16"/>
                         <ColumnConstraints percentWidth="34"/>
@@ -59,7 +61,8 @@
                     <TextField fx:id="txtInstr" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
                     <Label text="Date/Time" GridPane.rowIndex="3"/>
-                    <TextField fx:id="txtDate" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="YYYY-MM-DD hh:mm AM/PM"/>
+                    <TextField fx:id="txtDate" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                               promptText="YYYY-MM-DD hh:mm AM/PM"/>
 
                     <Label text="Location" GridPane.columnIndex="2"/>
                     <TextField fx:id="txtLoc" GridPane.columnIndex="3"/>
@@ -68,20 +71,23 @@
                     <TextField fx:id="txtCap" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
                 </GridPane>
 
-                <HBox spacing="8">
+                <!-- Course action buttons -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
                     <Button text="Add Course" onAction="#handleAddCourse" styleClass="primary-btn"/>
-                    <Button text="Add Participant" onAction="#handleAddParticipant"/>
+                    <Button text="Add Participant" onAction="#handleAddParticipant" styleClass="primary-btn"/>
+                    <Button text="Delete Course" onAction="#handleDeleteCourse" styleClass="primary-btn"/>
                 </HBox>
             </VBox>
 
-            <!-- Right: Enrollments -->
-            <VBox spacing="8" styleClass="panel">
+            <!-- ====== RIGHT PANE (Enrollments) ====== -->
+            <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
                 <padding>
-                    <Insets top="12" right="12" bottom="12" left="12"/>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
                 </padding>
 
-                <Label text="Enrollments (selected course)" styleClass="section-title"/>
-                <TableView fx:id="tblEnrollments" prefHeight="420">
+                <Label text="Enrollments (Selected Course)" styleClass="section-title"/>
+
+                <TableView fx:id="tblEnrollments" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colPid" text="PID" prefWidth="80"/>
                         <TableColumn fx:id="colPname" text="Name" prefWidth="160"/>
@@ -91,18 +97,21 @@
                     </columns>
                 </TableView>
 
-                <HBox spacing="8" alignment="CENTER_LEFT">
-                    <padding>
-                        <Insets top="8" right="0" bottom="0" left="0"/>
-                    </padding>
+                <!-- Enrollment action buttons -->
+                <VBox spacing="8">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Participant"/>
+                        <ComboBox fx:id="cmbParticipant" prefWidth="220"/>
+                        <Button text="Enroll" onAction="#handleEnroll" styleClass="primary-btn"/>
+                        <Label text="Status"/>
+                        <ComboBox fx:id="cmbStatus" prefWidth="160"/>
+                        <Button text="Update" onAction="#handleUpdateStatus" styleClass="primary-btn"/>
+                    </HBox>
 
-                    <Label text="Participant"/>
-                    <ComboBox fx:id="cmbParticipant" prefWidth="220"/>
-                    <Button text="Enroll" onAction="#handleEnroll" styleClass="primary-btn"/>
-                    <Label text="Status"/>
-                    <ComboBox fx:id="cmbStatus" prefWidth="160"/>
-                    <Button text="Update" onAction="#handleUpdateStatus"/>
-                </HBox>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button text="Unenroll" onAction="#handleUnenroll" styleClass="primary-btn"/>
+                    </HBox>
+                </VBox>
             </VBox>
         </SplitPane>
     </center>

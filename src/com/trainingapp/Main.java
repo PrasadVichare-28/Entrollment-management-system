@@ -3,25 +3,29 @@ package com.trainingapp;
 import com.trainingapp.util.ViewUtil;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
-        // Give the scene a reasonable base size; we'll maximize the window next
-        Scene scene = ViewUtil.loadScene("/com/trainingapp/view/login.fxml", 1280, 800);
+        // Load login page with dynamic scene
+        Scene scene = ViewUtil.loadScene("/com/trainingapp/view/login.fxml", 1020, 720);
 
         stage.setTitle("Training Enrollment Manager");
         stage.setScene(scene);
 
-        // ✨ Make the window fill the screen (keeps title bar and OS controls)
-        stage.setMaximized(true);
+        // Make the window adapt to the user's screen size
+        var bounds = Screen.getPrimary().getVisualBounds();
+        stage.setX(bounds.getMinX());
+        stage.setY(bounds.getMinY());
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
 
-        // If you prefer true fullscreen without window chrome, use this instead:
-        // stage.setFullScreen(true);
-
-        // Allow resizing so it looks good on all screens
+        // Allow resizing and scaling for all responsive FXMLs
         stage.setResizable(true);
+        stage.setMaximized(true); // keep windowed full-screen
 
         stage.show();
     }
