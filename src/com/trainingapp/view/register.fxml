@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.trainingapp.controller.RegisterController"
+            style="-fx-background-color: #f5f5f5;"
+            prefWidth="400"
+            prefHeight="450">
+
+    <center>
+        <VBox alignment="CENTER" spacing="12">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <Label text="Create Student Account"
+                   style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+            <!-- Full name (not yet stored, but we collect it for future use) -->
+            <TextField fx:id="fullNameField"
+                       promptText="Full Name"
+                       maxWidth="260"/>
+
+            <!-- Username / Email for login -->
+            <TextField fx:id="emailField"
+                       promptText="Email / Username"
+                       maxWidth="260"/>
+
+            <!-- Password -->
+            <PasswordField fx:id="passwordField"
+                           promptText="Password"
+                           maxWidth="260"/>
+
+            <!-- Confirm password -->
+            <PasswordField fx:id="confirmPasswordField"
+                           promptText="Confirm Password"
+                           maxWidth="260"/>
+
+            <!-- Error / status label -->
+            <Label fx:id="errorLabel"
+                   textFill="red"
+                   wrapText="true"
+                   maxWidth="260"/>
+
+            <!-- Register button -->
+            <Button text="Register"
+                    maxWidth="260"
+                    onAction="#handleRegister"/>
+
+            <!-- Back to login -->
+            <Hyperlink text="Already have an account? Log in"
+                       onAction="#goToLogin"/>
+        </VBox>
+    </center>
+
+</BorderPane>

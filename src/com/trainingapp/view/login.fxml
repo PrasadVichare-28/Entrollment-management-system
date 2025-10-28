@@ -26,6 +26,7 @@
     <center>
         <StackPane alignment="CENTER">
             <children>
+<<<<<<< HEAD
                 <VBox spacing="20" alignment="CENTER" maxWidth="420" styleClass="login-card" VBox.vgrow="ALWAYS">
                     <children>
                         <Label text="Sign In" styleClass="login-heading"/>
@@ -37,11 +38,56 @@
 
                         <Label fx:id="message" styleClass="warn" wrapText="true" maxWidth="320"/>
                     </children>
+=======
+                <VBox spacing="20"
+                      alignment="CENTER"
+                      maxWidth="420"
+                      styleClass="login-card"
+                      VBox.vgrow="ALWAYS">
+
+                    <children>
+                        <!-- Heading -->
+                        <Label text="Sign In" styleClass="login-heading"/>
+
+                        <!-- Email field -->
+                        <TextField fx:id="emailField"
+                                   promptText="Email"
+                                   maxWidth="320"/>
+
+                        <!-- Password field -->
+                        <PasswordField fx:id="passwordField"
+                                       promptText="Password"
+                                       maxWidth="320"/>
+
+                        <!-- Sign In button -->
+                        <Button text="Sign In"
+                                onAction="#handleLogin"
+                                styleClass="primary-btn"
+                                maxWidth="320"/>
+
+                        <!-- Register link -->
+                        <Hyperlink text="New student? Create account"
+                                   onAction="#goToRegister"
+                                   maxWidth="320"
+                                   style="-fx-text-fill: #4a4adf; -fx-font-size: 11px; -fx-alignment: center;"/>
+
+                        <!-- Error / status message -->
+                        <Label fx:id="message"
+                               styleClass="warn"
+                               wrapText="true"
+                               maxWidth="320"/>
+                    </children>
+
+>>>>>>> master
                     <padding>
                         <Insets top="30" right="30" bottom="30" left="30"/>
                     </padding>
                 </VBox>
             </children>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             <padding>
                 <Insets top="30" right="24" bottom="30" left="24"/>
             </padding>
