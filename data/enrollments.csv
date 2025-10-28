@@ -1,0 +1,6 @@
+courseId,participantId,status
+C-101,P-001,IN_PROGRESS
+c-103,P-300,COMPLETED
+c-103,P-001,IN_PROGRESS
+P-503,C-104
+P-505,C-104

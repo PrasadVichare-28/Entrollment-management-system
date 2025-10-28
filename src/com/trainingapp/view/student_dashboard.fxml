@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.trainingapp.controller.StudentDashboardController">
+
+    <!-- ===== TOP BAR ===== -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color: #1f3760;">
+            <children>
+                <Label text="Student Dashboard"
+                       style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <!-- Spacer region pushes Logout button to the far right -->
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="logoutButton"
+                        text="Logout"
+                        onAction="#handleLogout"
+                        style="-fx-background-radius: 6; -fx-padding: 6 12;"/>
+            </children>
+            <padding>
+                <Insets top="8" right="10" bottom="8" left="10"/>
+            </padding>
+        </HBox>
+    </top>
+
+    <!-- ===== CENTER CONTENT ===== -->
+    <center>
+        <SplitPane dividerPositions="0.5">
+            <items>
+
+                <!-- LEFT SIDE: Available Courses -->
+                <VBox spacing="8" style="-fx-background-color: #f8f8f8;">
+                    <children>
+                        <Label text="Available Courses"
+                               style="-fx-font-weight: bold; -fx-underline: true;"/>
+
+                        <TableView fx:id="availableCoursesTable"
+                                   prefHeight="400.0"
+                                   prefWidth="500.0">
+                            <columns>
+                                <TableColumn text="Course ID" prefWidth="80"/>
+                                <TableColumn text="Title" prefWidth="140"/>
+                                <TableColumn text="Instructor" prefWidth="120"/>
+                                <TableColumn text="Date/Time" prefWidth="140"/>
+                                <TableColumn text="Location" prefWidth="100"/>
+                            </columns>
+                            <placeholder>
+                                <Label text="No content in table"/>
+                            </placeholder>
+                        </TableView>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                </VBox>
+
+                <!-- RIGHT SIDE: My Enrollments -->
+                <VBox spacing="8" style="-fx-background-color: #fafafa;">
+                    <children>
+                        <Label fx:id="welcomeLabel"
+                               text="Welcome, Student"
+                               style="-fx-font-weight: bold; -fx-underline: true;"/>
+
+                        <TableView fx:id="myEnrollmentsTable"
+                                   prefHeight="400.0"
+                                   prefWidth="500.0">
+                            <columns>
+                                <TableColumn text="Course ID" prefWidth="80"/>
+                                <TableColumn text="Title" prefWidth="140"/>
+                                <TableColumn text="Date/Time" prefWidth="140"/>
+                                <TableColumn text="Location" prefWidth="100"/>
+                            </columns>
+                            <placeholder>
+                                <Label text="No content in table"/>
+                            </placeholder>
+                        </TableView>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                </VBox>
+
+            </items>
+        </SplitPane>
+    </center>
+
+    <!-- ===== BOTTOM BAR ===== -->
+    <bottom>
+        <HBox spacing="10" style="-fx-background-color: #efefef;">
+            <children>
+                <Button text="Enroll in Selected Course"
+                        onAction="#handleEnroll"
+                        style="-fx-background-radius: 8; -fx-padding: 8 14;"/>
+
+                <Button text="Refresh"
+                        onAction="#handleRefresh"
+                        style="-fx-background-radius: 8; -fx-padding: 8 14;"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </HBox>
+    </bottom>
+
+</BorderPane>

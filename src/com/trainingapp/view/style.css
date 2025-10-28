@@ -1,0 +1,190 @@
+/* ============================================================
+   BASE THEME
+   ============================================================ */
+.root-bg {
+    -fx-background-color: linear-gradient(to bottom right, #1E3C72, #2A5298);
+    -fx-font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+    -fx-text-fill: #222;
+}
+
+/* Adaptive text scaling */
+.root {
+    -fx-font-size: 1em;
+}
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+.toolbar {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-padding: 10 18;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.4, 0, 3);
+}
+.toolbar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+.ghost-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: rgba(255,255,255,0.4);
+    -fx-border-radius: 8;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+.ghost-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.2);
+}
+
+/* ============================================================
+   PANELS (Glass Effect)
+   ============================================================ */
+.panel {
+    -fx-background-color: rgba(255,255,255,0.75);
+    -fx-background-radius: 18;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.25, 0, 4);
+}
+.section-title {
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E3C72;
+    -fx-underline: true;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.primary-btn {
+    -fx-background-color: linear-gradient(to right, #667EEA, #764BA2);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 10;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.5), 8, 0.4, 0, 2);
+}
+.primary-btn:hover {
+    -fx-background-color: linear-gradient(to right, #5A67D8, #6B46C1);
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.7), 12, 0.4, 0, 3);
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.table-view {
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.5);
+    -fx-border-radius: 12;
+    -fx-background-color: rgba(255,255,255,0.65);
+}
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #E8ECF7, #D9E2F0);
+    -fx-background-radius: 12 12 0 0;
+}
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(0,0,0,0.05) transparent;
+}
+.table-view .table-row-cell:odd {
+    -fx-background-color: rgba(255,255,255,0.6);
+}
+.table-view .table-row-cell:selected {
+    -fx-background-color: rgba(102,126,234,0.3);
+    -fx-text-fill: #1E1E1E;
+}
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+.text-field, .combo-box, .password-field {
+    -fx-background-radius: 10;
+    -fx-background-color: rgba(255,255,255,0.9);
+    -fx-border-radius: 10;
+    -fx-border-color: #B5C2E0;
+    -fx-padding: 8 12;
+    -fx-font-size: 0.95em;
+}
+.text-field:focused, .combo-box:focused, .password-field:focused {
+    -fx-border-color: #667EEA;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.4), 8, 0.5, 0, 0);
+}
+
+/* ============================================================
+   SPLITPANE DIVIDER
+   ============================================================ */
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-padding: 0 1;
+}
+
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+    -fx-background-color: rgba(150,160,200,0.6);
+    -fx-background-radius: 6;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(150,160,200,0.9);
+}
+
+/* ============================================================
+   CARDS (Reusable)
+   ============================================================ */
+.card {
+    -fx-background-color: rgba(255,255,255,0.9);
+    -fx-background-radius: 16;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.2, 0, 4);
+}
+
+/* ============================================================
+   LOGIN PAGE POLISH
+   ============================================================ */
+.app-title {
+    -fx-font-size: 2.6em;
+    -fx-font-weight: 900;
+    -fx-text-fill: rgba(255,255,255,0.96);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0.35, 0, 4);
+    -fx-text-alignment: center;
+}
+.login-card {
+    -fx-background-color: rgba(255,255,255,0.92);
+    -fx-background-radius: 20;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 22, 0.35, 0, 8);
+    -fx-border-color: rgba(255,255,255,0.45);
+    -fx-border-radius: 20;
+}
+.login-heading {
+    -fx-font-size: 1.4em;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1E3C72;
+}
+.login-footer {
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-font-size: 0.8em;
+}
+.warn {
+    -fx-text-fill: #C62828;
+    -fx-font-size: 0.9em;
+    -fx-font-weight: 600;
+}
+.hint {
+    -fx-text-fill: #666;
+    -fx-font-size: 0.8em;
+}
+
+/* ============================================================
+   OPTIONAL CLEANUP (Better focus look)
+   ============================================================ */
+* {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
