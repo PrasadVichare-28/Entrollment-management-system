@@ -45,6 +45,19 @@ public class TrainingService {
         return (int) enrollments.stream().filter(e -> e.getCourse().equals(c)).count();
     }
 
+    // 🗑 New: Delete Course (removes related enrollments)
+    public void deleteCourse(String courseId) throws Exception {
+        Course c = findCourse(courseId);
+        if (c == null) throw new Exception("Course not found.");
+
+        // Remove related enrollments
+        enrollments.removeIf(e -> e.getCourse().equals(c));
+        courses.remove(c);
+
+        saveCourses();
+        saveEnrollments();
+    }
+
     // ---------- Participants ----------
     public List<Participant> getParticipants() { return participants; }
 
@@ -86,6 +99,19 @@ public class TrainingService {
         }
         if (getEnrolledCount(c) >= c.getCapacity()) throw new Exception("Course is at capacity.");
         enrollments.add(new Enrollment(c, p));
+        saveEnrollments();
+    }
+
+    // 🚫 New: Unenroll a participant from a course
+    public void unenroll(String courseId, String participantId) throws Exception {
+        Course c = findCourse(courseId);
+        Participant p = findParticipant(participantId);
+        if (c == null || p == null) throw new Exception("Course or participant not found.");
+
+        boolean removed = enrollments.removeIf(e ->
+                e.getCourse().equals(c) && e.getParticipant().equals(p));
+        if (!removed) throw new Exception("Enrollment not found.");
+
         saveEnrollments();
     }
 

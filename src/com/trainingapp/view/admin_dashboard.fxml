@@ -22,7 +22,7 @@
     <!-- ====== MAIN CONTENT ====== -->
     <center>
         <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
-            
+
             <!-- ====== LEFT PANE (Courses) ====== -->
             <VBox spacing="10" styleClass="panel" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
                 <padding>
@@ -71,9 +71,11 @@
                     <TextField fx:id="txtCap" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
                 </GridPane>
 
+                <!-- Course action buttons -->
                 <HBox spacing="10" alignment="CENTER_LEFT">
                     <Button text="Add Course" onAction="#handleAddCourse" styleClass="primary-btn"/>
-                    <Button text="Add Participant" onAction="#handleAddParticipant"/>
+                    <Button text="Add Participant" onAction="#handleAddParticipant" styleClass="primary-btn"/>
+                    <Button text="Delete Course" onAction="#handleDeleteCourse" styleClass="primary-btn"/>
                 </HBox>
             </VBox>
 
@@ -95,18 +97,21 @@
                     </columns>
                 </TableView>
 
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <padding>
-                        <Insets top="8" right="0" bottom="0" left="0"/>
-                    </padding>
+                <!-- Enrollment action buttons -->
+                <VBox spacing="8">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Participant"/>
+                        <ComboBox fx:id="cmbParticipant" prefWidth="220"/>
+                        <Button text="Enroll" onAction="#handleEnroll" styleClass="primary-btn"/>
+                        <Label text="Status"/>
+                        <ComboBox fx:id="cmbStatus" prefWidth="160"/>
+                        <Button text="Update" onAction="#handleUpdateStatus" styleClass="primary-btn"/>
+                    </HBox>
 
-                    <Label text="Participant"/>
-                    <ComboBox fx:id="cmbParticipant" prefWidth="220"/>
-                    <Button text="Enroll" onAction="#handleEnroll" styleClass="primary-btn"/>
-                    <Label text="Status"/>
-                    <ComboBox fx:id="cmbStatus" prefWidth="160"/>
-                    <Button text="Update" onAction="#handleUpdateStatus"/>
-                </HBox>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button text="Unenroll" onAction="#handleUnenroll" styleClass="primary-btn"/>
+                    </HBox>
+                </VBox>
             </VBox>
         </SplitPane>
     </center>

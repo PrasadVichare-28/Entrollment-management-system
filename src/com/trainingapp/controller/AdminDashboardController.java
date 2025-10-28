@@ -31,7 +31,6 @@ public class AdminDashboardController {
 
     @FXML
     private void initialize() {
-        // Courses table bindings
         colCid.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getCourseId()));
         colTitle.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getTitle()));
         colInstr.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getInstructorName()));
@@ -42,7 +41,6 @@ public class AdminDashboardController {
 
         refreshCourses();
 
-        // Enrollments
         colPid.setCellValueFactory(e -> new javafx.beans.property.SimpleStringProperty(e.getValue().getParticipant().getParticipantId()));
         colPname.setCellValueFactory(e -> new javafx.beans.property.SimpleStringProperty(e.getValue().getParticipant().getName()));
         colDept.setCellValueFactory(e -> new javafx.beans.property.SimpleStringProperty(e.getValue().getParticipant().getDepartment()));
@@ -56,8 +54,7 @@ public class AdminDashboardController {
     }
 
     private void refreshCourses() {
-        ObservableList<Course> data = FXCollections.observableArrayList(svc.getCourses());
-        tblCourses.setItems(data);
+        tblCourses.setItems(FXCollections.observableArrayList(svc.getCourses()));
         tblCourses.refresh();
         refreshEnrollments();
     }
@@ -68,25 +65,60 @@ public class AdminDashboardController {
             tblEnrollments.setItems(FXCollections.emptyObservableList());
             return;
         }
-        ObservableList<Enrollment> data = FXCollections.observableArrayList(svc.getEnrollmentsForCourse(sel.getCourseId()));
-        tblEnrollments.setItems(data);
+        tblEnrollments.setItems(FXCollections.observableArrayList(svc.getEnrollmentsForCourse(sel.getCourseId())));
         tblEnrollments.refresh();
     }
 
     @FXML
     private void handleAddCourse() {
         try {
-            String id = txtId.getText().trim();
-            String title = txtTitle.getText().trim();
-            String instr = txtInstr.getText().trim();
-            String dt = txtDate.getText().trim();
-            String loc = txtLoc.getText().trim();
-            int cap = Integer.parseInt(txtCap.getText().trim());
-            svc.addCourse(id, title, instr, dt, loc, cap);
+            svc.addCourse(
+                    txtId.getText().trim(),
+                    txtTitle.getText().trim(),
+                    txtInstr.getText().trim(),
+                    txtDate.getText().trim(),
+                    txtLoc.getText().trim(),
+                    Integer.parseInt(txtCap.getText().trim())
+            );
             clearCourseForm();
             refreshCourses();
-        } catch (Exception ex) {
-            showError(ex.getMessage());
+        } catch (Exception ex) { showError(ex.getMessage()); }
+    }
+
+    @FXML
+    private void handleDeleteCourse() {
+        Course sel = tblCourses.getSelectionModel().getSelectedItem();
+        if (sel == null) { showError("Select a course to delete."); return; }
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                "Delete course '" + sel.getTitle() + "' and all its enrollments?",
+                ButtonType.YES, ButtonType.NO);
+        confirm.setTitle("Confirm Delete");
+        confirm.showAndWait();
+
+        if (confirm.getResult() == ButtonType.YES) {
+            try {
+                svc.deleteCourse(sel.getCourseId());
+                refreshCourses();
+            } catch (Exception ex) { showError(ex.getMessage()); }
+        }
+    }
+
+    @FXML
+    private void handleUnenroll() {
+        Enrollment sel = tblEnrollments.getSelectionModel().getSelectedItem();
+        if (sel == null) { showError("Select an enrollment to remove."); return; }
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                "Unenroll participant '" + sel.getParticipant().getName() +
+                        "' from '" + sel.getCourse().getTitle() + "'?",
+                ButtonType.YES, ButtonType.NO);
+        confirm.setTitle("Confirm Unenroll");
+        confirm.showAndWait();
+
+        if (confirm.getResult() == ButtonType.YES) {
+            try {
+                svc.unenroll(sel.getCourse().getCourseId(), sel.getParticipant().getParticipantId());
+                refreshEnrollments();
+            } catch (Exception ex) { showError(ex.getMessage()); }
         }
     }
 
@@ -98,9 +130,7 @@ public class AdminDashboardController {
         try {
             svc.enroll(sel.getCourseId(), part.getParticipantId());
             refreshCourses();
-        } catch (Exception ex) {
-            showError(ex.getMessage());
-        }
+        } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
     @FXML
@@ -112,9 +142,7 @@ public class AdminDashboardController {
         try {
             svc.setStatus(sel.getCourseId(), en.getParticipant().getParticipantId(), st);
             refreshEnrollments();
-        } catch (Exception ex) {
-            showError(ex.getMessage());
-        }
+        } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
     @FXML
@@ -140,14 +168,13 @@ public class AdminDashboardController {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.setTitle("Training Enrollment Manager");
-        } catch (Exception ex) {
-            showError("Failed to logout.");
-        }
+        } catch (Exception ex) { showError("Failed to logout."); }
     }
 
     private void clearCourseForm() {
         txtId.clear(); txtTitle.clear(); txtInstr.clear(); txtDate.clear(); txtLoc.clear(); txtCap.clear();
     }
+
     private void showError(String msg) {
         new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK).showAndWait();
     }
